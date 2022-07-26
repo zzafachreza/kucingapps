@@ -8,11 +8,12 @@ import moment from 'moment';
 export default function SHasil({ navigation, route }) {
     const kode = route.params.kode;
     console.warn('kode', kode)
-
+    moment.locale('id')
     const [data, setData] = useState({});
     const [user, setUser] = useState({});
     const [open, setOpen] = useState(false);
-
+    var idLocale = require('moment/locale/id');
+    moment.locale('id', idLocale);
     useEffect(() => {
         getData('user').then(res => {
             setUser(res);

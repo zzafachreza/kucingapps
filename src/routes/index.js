@@ -12,7 +12,6 @@ import {
   SHasil,
 } from '../pages';
 import { colors } from '../utils';
-import MenuPengalamanAdd from '../pages/MenuPengalamanAdd';
 
 const Stack = createStackNavigator();
 

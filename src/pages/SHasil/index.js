@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { getData } from '../../utils/localStorage';
 import { colors, fonts, windowWidth } from '../../utils';
@@ -9,7 +9,7 @@ export default function SHasil({ navigation, route }) {
     const kode = route.params.kode;
     console.warn('kode', kode)
     moment.locale('id')
-    const [data, setData] = useState({});
+    const [data, setData] = useState([]);
     const [user, setUser] = useState({});
     const [open, setOpen] = useState(false);
     var idLocale = require('moment/locale/id');
@@ -136,123 +136,143 @@ export default function SHasil({ navigation, route }) {
             </View>
 
 
-            {open && <>
-                <View style={{
-                    padding: 10,
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}>
-                    <Text style={{
-                        fontFamily: fonts.secondary[600],
-                        fontSize: windowWidth / 25,
-                        backgroundColor: colors.primary,
-                        width: 290,
-                        paddingVertical: 10,
-                        borderRadius: 10,
-                        textAlign: 'center',
-                        color: colors.white
-                    }}>Hasil Analisia</Text>
-                    <Text style={{
-                        fontFamily: fonts.secondary[600],
-                        fontSize: windowWidth / 30,
-                        backgroundColor: colors.border,
-                        width: 280,
-                        paddingVertical: 20,
-                        borderBottomRightRadius: 10,
-                        borderBottomLeftRadius: 10,
-                        textAlign: 'center',
-                        color: colors.primary
-                    }}>{data.kode_rule}</Text>
-                </View>
+            <ScrollView>
+                {open && <>
 
 
-                <View style={{
-                    padding: 10,
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}>
-                    <Text style={{
-                        fontFamily: fonts.secondary[600],
-                        fontSize: windowWidth / 25,
-                        backgroundColor: colors.primary,
-                        width: 290,
-                        paddingVertical: 10,
-                        borderRadius: 10,
-                        textAlign: 'center',
-                        color: colors.white
-                    }}>Solusi</Text>
-                    <View style={{
-
-                        backgroundColor: colors.border,
-                        width: 280,
-                        borderBottomRightRadius: 10,
-                        borderBottomLeftRadius: 10,
-                        padding: 10,
-
-                    }}>
-                        <View style={{
-                            flexDirection: 'row'
-                        }}>
-                            <Text style={{
-                                fontFamily: fonts.secondary[600],
-                                fontSize: windowWidth / 30,
-                                color: colors.primary,
-                                marginVertical: 10,
-                                marginRight: 10,
-                            }}>a. </Text>
-                            <Text style={{
-                                flex: 1,
-                                fontFamily: fonts.secondary[600],
-                                fontSize: windowWidth / 30,
-                                color: colors.primary,
-                                marginVertical: 10,
-                            }}>{data.a}</Text>
-                        </View>
-                        {data.b.length > 0 &&
-                            <View style={{
-                                flexDirection: 'row'
-                            }}>
-                                <Text style={{
-                                    fontFamily: fonts.secondary[600],
-                                    fontSize: windowWidth / 30,
-                                    color: colors.primary,
-                                    marginVertical: 10,
-                                    marginRight: 10,
-                                }}>b. </Text>
-                                <Text style={{
-                                    flex: 1,
-                                    fontFamily: fonts.secondary[600],
-                                    fontSize: windowWidth / 30,
-                                    color: colors.primary,
-                                    marginVertical: 10,
-                                }}>{data.b}</Text>
-                            </View>}
-
-                        {data.c.length > 0 &&
-                            <View style={{
-                                flexDirection: 'row'
-                            }}>
-                                <Text style={{
-                                    fontFamily: fonts.secondary[600],
-                                    fontSize: windowWidth / 30,
-                                    color: colors.primary,
-                                    marginVertical: 10,
-                                    marginRight: 10,
-                                }}>c. </Text>
-                                <Text style={{
-                                    flex: 1,
-                                    fontFamily: fonts.secondary[600],
-                                    fontSize: windowWidth / 30,
-                                    color: colors.primary,
-                                    marginVertical: 10,
-                                }}>{data.c}</Text>
-                            </View>}
+                    {
+                        data.map(i => {
+                            return (
+                                <View style={{
+                                    borderBottomWidth: 3,
+                                    marginVertical: 5,
+                                    borderBottomColor: colors.secondary
+                                }}>
+                                    <View style={{
+                                        padding: 10,
+                                        justifyContent: 'center',
+                                        alignItems: 'center'
+                                    }}>
+                                        <Text style={{
+                                            fontFamily: fonts.secondary[600],
+                                            fontSize: windowWidth / 25,
+                                            backgroundColor: colors.primary,
+                                            width: 290,
+                                            paddingVertical: 10,
+                                            borderRadius: 10,
+                                            textAlign: 'center',
+                                            color: colors.white
+                                        }}>Hasil Analisia</Text>
+                                        <Text style={{
+                                            fontFamily: fonts.secondary[600],
+                                            fontSize: windowWidth / 30,
+                                            backgroundColor: colors.border,
+                                            width: 280,
+                                            paddingVertical: 20,
+                                            borderBottomRightRadius: 10,
+                                            borderBottomLeftRadius: 10,
+                                            textAlign: 'center',
+                                            color: colors.primary
+                                        }}>{i.kode_rule}</Text>
+                                    </View>
 
 
+                                    <View style={{
+                                        padding: 10,
+                                        justifyContent: 'center',
+                                        alignItems: 'center'
+                                    }}>
+                                        <Text style={{
+                                            fontFamily: fonts.secondary[600],
+                                            fontSize: windowWidth / 25,
+                                            backgroundColor: colors.primary,
+                                            width: 290,
+                                            paddingVertical: 10,
+                                            borderRadius: 10,
+                                            textAlign: 'center',
+                                            color: colors.white
+                                        }}>Solusi</Text>
+                                        <View style={{
+
+                                            backgroundColor: colors.border,
+                                            width: 280,
+                                            borderBottomRightRadius: 10,
+                                            borderBottomLeftRadius: 10,
+                                            padding: 10,
+
+                                        }}>
+                                            <View style={{
+                                                flexDirection: 'row'
+                                            }}>
+                                                <Text style={{
+                                                    fontFamily: fonts.secondary[600],
+                                                    fontSize: windowWidth / 30,
+                                                    color: colors.primary,
+                                                    marginVertical: 10,
+                                                    marginRight: 10,
+                                                }}>a. </Text>
+                                                <Text style={{
+                                                    flex: 1,
+                                                    fontFamily: fonts.secondary[600],
+                                                    fontSize: windowWidth / 30,
+                                                    color: colors.primary,
+                                                    marginVertical: 10,
+                                                }}>{i.a}</Text>
+                                            </View>
+                                            {i.b.length > 0 &&
+                                                <View style={{
+                                                    flexDirection: 'row'
+                                                }}>
+                                                    <Text style={{
+                                                        fontFamily: fonts.secondary[600],
+                                                        fontSize: windowWidth / 30,
+                                                        color: colors.primary,
+                                                        marginVertical: 10,
+                                                        marginRight: 10,
+                                                    }}>b. </Text>
+                                                    <Text style={{
+                                                        flex: 1,
+                                                        fontFamily: fonts.secondary[600],
+                                                        fontSize: windowWidth / 30,
+                                                        color: colors.primary,
+                                                        marginVertical: 10,
+                                                    }}>{i.b}</Text>
+                                                </View>}
+
+                                            {i.c.length > 0 &&
+                                                <View style={{
+                                                    flexDirection: 'row'
+                                                }}>
+                                                    <Text style={{
+                                                        fontFamily: fonts.secondary[600],
+                                                        fontSize: windowWidth / 30,
+                                                        color: colors.primary,
+                                                        marginVertical: 10,
+                                                        marginRight: 10,
+                                                    }}>c. </Text>
+                                                    <Text style={{
+                                                        flex: 1,
+                                                        fontFamily: fonts.secondary[600],
+                                                        fontSize: windowWidth / 30,
+                                                        color: colors.primary,
+                                                        marginVertical: 10,
+                                                    }}>{i.c}</Text>
+                                                </View>}
 
 
-                    </View>
-                </View></>}
+
+
+                                        </View>
+                                    </View>
+                                </View>
+                            )
+                        })
+                    }
+
+
+
+                </>}
+            </ScrollView>
 
         </View >
     )

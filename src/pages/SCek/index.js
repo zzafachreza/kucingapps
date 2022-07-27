@@ -168,12 +168,12 @@ export default function Evaluasi1({ navigation }) {
                     if (jawaban[1] == 1 && jawaban[2] == 1 && jawaban[3] == 1 && jawaban[4] == 1 && jawaban[5] == 1 && jawaban[6] == 1) {
                         console.log('S01');
                         navigation.navigate('SHasil', {
-                            kode: 'S01'
+                            kode: ['S01']
                         })
                     } else if (jawaban[6] == 1 && jawaban[7] == 1 && jawaban[8] == 1 && jawaban[9] == 1) {
                         console.log('S02');
                         navigation.navigate('SHasil', {
-                            kode: 'S02'
+                            kode: ['S02']
                         })
                     } else if (jawaban[6] == 1 && jawaban[7] == 1 && jawaban[10] == 1 && jawaban[11] == 1) {
                         console.log('S03');
@@ -183,18 +183,134 @@ export default function Evaluasi1({ navigation }) {
                     } else if (jawaban[7] == 1 && jawaban[12] == 1 && jawaban[13] == 1 && jawaban[14] == 1 && jawaban[15] == 1 && jawaban[16] == 1) {
                         console.log('S04');
                         navigation.navigate('SHasil', {
-                            kode: 'S04'
+                            kode: ['S04']
                         })
                     } else if (jawaban[12] == 1 && jawaban[13] == 1 && jawaban[14] == 1 && jawaban[17] == 1 && jawaban[18] == 1 && jawaban[19] == 1 && jawaban[20] == 1) {
                         console.log('S05');
                         navigation.navigate('SHasil', {
-                            kode: 'S05'
+                            kode: ['S05']
                         })
                     }
                     else if (jawaban[21] == 1 && jawaban[22] == 1 && jawaban[23] == 1) {
                         console.log('S06');
                         navigation.navigate('SHasil', {
-                            kode: 'S06'
+                            kode: ['S06']
+                        })
+                    } else if (jawaban[1] == 1) {
+                        console.log('S01');
+                        navigation.navigate('SHasil', {
+                            kode: ['S01']
+                        })
+                    } else if (jawaban[2] == 1) {
+                        console.log('S01');
+                        navigation.navigate('SHasil', {
+                            kode: ['S01']
+                        })
+                    } else if (jawaban[3] == 1) {
+                        console.log('S01');
+                        navigation.navigate('SHasil', {
+                            kode: ['S01']
+                        })
+                    } else if (jawaban[4] == 1) {
+                        console.log('S01');
+                        navigation.navigate('SHasil', {
+                            kode: ['S01']
+                        })
+                    } else if (jawaban[5] == 1) {
+                        console.log('S01');
+                        navigation.navigate('SHasil', {
+                            kode: ['S01']
+                        })
+                    } else if (jawaban[6] == 1) {
+                        console.log('S01');
+                        navigation.navigate('SHasil', {
+                            kode: ['S01', 'S02', 'S03']
+                        })
+                    }
+                    else if (jawaban[7] == 1) {
+
+                        navigation.navigate('SHasil', {
+                            kode: ['S02', 'S03', 'S04']
+                        })
+                    } else if (jawaban[8] == 1) {
+
+                        navigation.navigate('SHasil', {
+                            kode: ['S02']
+                        })
+                    } else if (jawaban[9] == 1) {
+
+                        navigation.navigate('SHasil', {
+                            kode: ['S02']
+                        })
+                    } else if (jawaban[10] == 1) {
+
+                        navigation.navigate('SHasil', {
+                            kode: ['S03']
+                        })
+                    } else if (jawaban[11] == 1) {
+
+                        navigation.navigate('SHasil', {
+                            kode: ['S03']
+                        })
+                    } else if (jawaban[12] == 1) {
+
+                        navigation.navigate('SHasil', {
+                            kode: ['S04', 'S05']
+                        })
+                    } else if (jawaban[13] == 1) {
+
+                        navigation.navigate('SHasil', {
+                            kode: ['S04', 'S05']
+                        })
+                    } else if (jawaban[14] == 1) {
+
+                        navigation.navigate('SHasil', {
+                            kode: ['S04', 'S05']
+                        })
+                    } else if (jawaban[15] == 1) {
+
+                        navigation.navigate('SHasil', {
+                            kode: ['S04']
+                        })
+                    } else if (jawaban[16] == 1) {
+
+                        navigation.navigate('SHasil', {
+                            kode: ['S04']
+                        })
+                    } else if (jawaban[17] == 1) {
+
+                        navigation.navigate('SHasil', {
+                            kode: ['S05']
+                        })
+                    } else if (jawaban[18] == 1) {
+
+                        navigation.navigate('SHasil', {
+                            kode: ['S05']
+                        })
+                    } else if (jawaban[19] == 1) {
+
+                        navigation.navigate('SHasil', {
+                            kode: ['S05']
+                        })
+                    } else if (jawaban[20] == 1) {
+
+                        navigation.navigate('SHasil', {
+                            kode: ['S05']
+                        })
+                    } else if (jawaban[21] == 1) {
+
+                        navigation.navigate('SHasil', {
+                            kode: ['S06']
+                        })
+                    } else if (jawaban[22] == 1) {
+
+                        navigation.navigate('SHasil', {
+                            kode: ['S06']
+                        })
+                    } else if (jawaban[23] == 1) {
+
+                        navigation.navigate('SHasil', {
+                            kode: ['S06']
                         })
                     }
 

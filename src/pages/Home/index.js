@@ -19,54 +19,15 @@ export default function Home({ navigation }) {
 
 
   useEffect(() => {
-    if (isFocused) {
-
-      getData('user').then(res => {
-        setUser(res);
-
-        axios.post(apiURL + 'data.php', {
-          id_user: res.id
-        }).then(res => {
-
-          console.error('data server', res.data)
-          setData(res.data)
-
-        })
 
 
-      })
-
-
-    }
-  }, [isFocused]);
-
-
-  const DataMenu = ({ img, judul, onPress }) => {
-    return (
-      <TouchableOpacity onPress={onPress} style={{
-        backgroundColor: colors.primary,
-        height: 100,
-        padding: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 10,
-        flex: 1,
-        marginHorizontal: 20,
-      }}>
-        <Image source={img} style={{
-          width: '100%',
-          height: 100,
-          resizeMode: "contain"
-        }} />
-        <Text style={{
-          fontFamily: fonts.secondary[600],
-          color: colors.white,
-          textAlign: 'center',
-          fontSize: 16
-        }}>{judul}</Text>
-      </TouchableOpacity>
-    )
+    getData('user').then(res => {
+      setUser(res);
+    })
   }
+    , []);
+
+
 
 
   return (

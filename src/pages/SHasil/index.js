@@ -3,26 +3,32 @@ import React, { useEffect, useState } from 'react'
 import { getData } from '../../utils/localStorage';
 import { colors, fonts, windowWidth } from '../../utils';
 import axios from 'axios';
-import { apiURL, storeData } from '../../utils/localStorage';
+import { apiURL } from '../../utils/localStorage';
 import moment from 'moment';
+
 export default function SHasil({ navigation, route }) {
     const kode = route.params.kode;
-    console.warn('kode', kode)
-    moment.locale('id')
     const [data, setData] = useState([]);
     const [user, setUser] = useState({});
     const [open, setOpen] = useState(false);
-    var idLocale = require('moment/locale/id');
-    moment.locale('id', idLocale);
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = dd + '/' + mm + '/' + yyyy;
     useEffect(() => {
         getData('user').then(res => {
             setUser(res);
         });
 
+        console.log('Kode', route.params.persen)
+
         axios.post(apiURL + 'solusi.php', {
             kode: route.params.kode
         }).then(resz => {
-            console.log(resz.data);
+            // console.log(resz.data);
             setData(resz.data);
             setOpen(true)
         })
@@ -130,7 +136,7 @@ export default function SHasil({ navigation, route }) {
                             fontFamily: fonts.secondary[600],
                             fontSize: windowWidth / 25,
                             color: colors.white
-                        }}>{moment().format('LLL')}</Text>
+                        }}>{today}</Text>
                     </View>
                 </View>
             </View>
@@ -141,9 +147,9 @@ export default function SHasil({ navigation, route }) {
 
 
                     {
-                        data.map(i => {
+                        data.map((i, index) => {
                             return (
-                                <View style={{
+                                <View key={i.id} style={{
                                     borderBottomWidth: 3,
                                     marginVertical: 5,
                                     borderBottomColor: colors.secondary
@@ -173,7 +179,7 @@ export default function SHasil({ navigation, route }) {
                                             borderBottomLeftRadius: 10,
                                             textAlign: 'center',
                                             color: colors.primary
-                                        }}>{i.kode_rule}</Text>
+                                        }}>{i.kode_rule} ( {route.params.persen[index]} )</Text>
                                     </View>
 
 
